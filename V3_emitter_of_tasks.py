@@ -1,15 +1,7 @@
-"""
-    This program sends a message to a queue on the RabbitMQ server.
-    Make tasks harder/longer-running by adding dots at the end of the message.
-
-    Author: Denise Case
-    Date: January 15, 2023
-
-"""
-
 import pika
 import sys
 import webbrowser
+import csv  # Import the CSV module to read the CSV file
 
 def offer_rabbitmq_admin_site():
     """Offer to open the RabbitMQ Admin website"""
@@ -20,16 +12,6 @@ def offer_rabbitmq_admin_site():
         print()
 
 def send_message(host: str, queue_name: str, message: str):
-    """
-    Creates and sends a message to the queue each execution.
-    This process runs and finishes.
-
-    Parameters:
-        host (str): the host name or IP address of the RabbitMQ server
-        queue_name (str): the name of the queue
-        message (str): the message to be sent to the queue
-    """
-
     try:
         # create a blocking connection to the RabbitMQ server
         conn = pika.BlockingConnection(pika.ConnectionParameters(host))
@@ -52,16 +34,13 @@ def send_message(host: str, queue_name: str, message: str):
         # close the connection to the server
         conn.close()
 
-# Standard Python idiom to indicate main program entry point
-# This allows us to import this module and use its functions
-# without executing the code below.
-# If this is the program being run, then execute the code below
-if __name__ == "__main__":  
-    # ask the user if they'd like to open the RabbitMQ Admin site
+
+if __name__ == "__main__":
     offer_rabbitmq_admin_site()
-    # get the message from the command line
-    # if no arguments are provided, use the default message
-    # use the join method to convert the list of arguments into a string
-    # join by the space character inside the quotes
-    message = " ".join(sys.argv[1:]) or "First task....."
-    send_message("localhost","task_queue",message)
+
+    # Read messages from a CSV file (assuming one message per line)
+    with open("tasks.csv", newline="") as csvfile:
+        messages_reader = csv.reader(csvfile)
+        for row in messages_reader:
+            message = " ".join(row)  # Combine columns into a single message
+            send_message("localhost", "task_queue", message)

@@ -53,7 +53,7 @@ def listen_for_tasks():
     # and help ensure messages are processed in order
     # messages will not be deleted until the consumer acknowledges    
     ch.queue_declare(queue="task_queue", durable=True)
-    print(" [*] Ready for work. To exit press CTRL+C")
+    print(" [0] Ready for work. To exit press CTRL+C")
 
     # The QoS level controls the # of messages 
     # that can be in-flight (unacknowledged by the consumer) 
@@ -69,9 +69,6 @@ def listen_for_tasks():
     # use the callback function named callback,
     # and do not auto-acknowledge the message (let the callback handle it)
     ch.basic_consume(queue="task_queue", on_message_callback=callback)
-
-    # start consuming messages via the communication channel
-    ch.start_consuming()
 
 
 if __name__ == "__main__":
