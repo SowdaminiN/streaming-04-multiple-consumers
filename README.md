@@ -60,4 +60,4 @@ Which worker gets which tasks?
 
 See a running example with at least 3 concurrent process windows here:
 
-- [Concurrent Processes](https://github.com/SowdaminiN/streaming-04-multiple-consumers/blob/main/Output_Updated.png "Output")
+![Concurrent Processes](https://github.com/SowdaminiN/streaming-04-multiple-consumers/blob/main/Output_Updated.png "Output")
