@@ -73,7 +73,6 @@ def main(hn: str, qn: str):
 
         # print a message to the console for the user
         print(" [*] Ready for work. To exit press CTRL+C")
-        print(" [*] Ready for work. To exit press CTRL+C")
 
         # start consuming messages via the communication channel
         channel.start_consuming()

@@ -55,9 +55,14 @@ Which worker gets which tasks?
 
 - [RabbitMQ Tutorial - Work Queues](https://www.rabbitmq.com/tutorials/tutorial-two-python.html)
 
+## Logs
+The process I have developed can write to the logs and here are the logs for Producer and Consumers
+ - [Producer_Output_Log](https://github.com/SowdaminiN/streaming-04-multiple-consumers/blob/main/task_queue3_producer_file.log "Producer Log")
+ - [Consumer_Output_Log](https://github.com/SowdaminiN/streaming-04-multiple-consumers/blob/main/task_queue3_consumer_file.log "Consumer Log")
 
 ## Screenshot
 
 See a running example with at least 3 concurrent process windows here:
 
-![Concurrent Processes](https://github.com/SowdaminiN/streaming-04-multiple-consumers/blob/main/Output_Updated.png "Output")
+![Concurrent Processes - Powershell](https://github.com/SowdaminiN/streaming-04-multiple-consumers/blob/main/Output_Updated.png "Output")
+![Concurrent Processes - Admin](https://github.com/SowdaminiN/streaming-04-multiple-consumers/blob/main/Admin_Output.png "Output Admin")
